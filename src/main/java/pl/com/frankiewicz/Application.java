@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
-    @RestController
+   // @RestController
     public class Application {
 
         public static void main(String[] args) {

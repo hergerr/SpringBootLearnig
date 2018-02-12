@@ -1,10 +1,11 @@
 package pl.com.frankiewicz.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.*;
 import pl.com.frankiewicz.Application;
 
-@RestController
+//@RestController
 public class HelloWorldController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/hello")
@@ -29,5 +30,22 @@ public class HelloWorldController {
     @PutMapping //to samo co do gory
     public String helloWordBody(@RequestBody String name){
         return "Hello " + name;
+    }
+
+    @Autowired
+    private String helloWorld;
+//
+//    @GetMapping("/x")
+//    public String helloInjection(){
+//        return helloWorld;
+//    }
+
+//    @Autowired
+    public void setHelloWord(String helloWord){
+        this.helloWorld = helloWord;
+    }
+    //niepotrzebne hello world
+    public HelloWorldController(String helloWorld){
+        this.helloWorld = helloWorld;
     }
 }

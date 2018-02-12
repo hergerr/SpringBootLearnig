@@ -11,12 +11,13 @@ import pl.com.frankiewicz.dto.ExchangeRates;
 @RestController
 public class CurrencyExchangeController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/currency/{from}/{to}")
-    public String getRate(@PathVariable String from, @PathVariable String to){
+    @RequestMapping(method = RequestMethod.GET, value = "/currency/{howMany}/{from}/{to}")
+    public String getRate(@PathVariable Integer howMany, @PathVariable String from, @PathVariable String to){
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<ExchangeRates> entity = restTemplate.getForEntity("https://api.fixer.io/latest?base=" + from, ExchangeRates.class);
         Double rate = entity.getBody().getRates().get(to);
+        rate *= howMany;
 
-        return from + " to " + to + " is " + rate;
+        return from + " to " + to + " is " + rate ;
     }
 }

@@ -41,11 +41,11 @@ public class HelloWorldController {
 //    }
 
 //    @Autowired
-    public void setHelloWord(String helloWord){
+     public void setHelloWord(String helloWord){
         this.helloWorld = helloWord;
-    }
-    //niepotrzebne hello world
-    public HelloWorldController(String helloWorld){
+     }
+     //niepotrzebne hello world
+     public HelloWorldController(String helloWorld){
         this.helloWorld = helloWorld;
-    }
+     }
 }

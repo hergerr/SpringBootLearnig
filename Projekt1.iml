@@ -14,7 +14,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -78,7 +78,6 @@
     <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-ui:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-spring-web:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-swagger2:2.2.2" level="project" />
-    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.0.0.CR1" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-models:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-spi:2.2.2" level="project" />
@@ -94,5 +93,7 @@
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.hateoas:spring-hateoas:0.23.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-jdk8:1.2.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.mapstruct:mapstruct-processor:1.2.0.Final" level="project" />
   </component>
 </module>

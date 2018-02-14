@@ -1,23 +1,26 @@
-package pl.com.frankiewicz.model;
+package pl.com.frankiewicz.product;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import pl.com.frankiewicz.common.BaseEntity;
+import pl.com.frankiewicz.order.Order;
+import pl.com.frankiewicz.supplier.Supplier;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+@Table(name = "product")
+public class Product extends BaseEntity {
+
     private String name;
     private BigDecimal price;
 
-    public long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "product")
+    private List<Supplier> suppliers;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 
     public String getName() {
         return name;
@@ -25,10 +28,6 @@ public class Product {
 
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public void setName(String name) {
@@ -40,12 +39,15 @@ public class Product {
     }
 
     public Product(long id,String name, BigDecimal price) {
-        this.id = id;
         this.name = name;
         this.price = price;
     }
 
     public Product(){
 
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 }

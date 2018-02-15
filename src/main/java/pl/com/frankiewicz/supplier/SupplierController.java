@@ -3,6 +3,7 @@ package pl.com.frankiewicz.supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/api/suppliers")
@@ -24,5 +25,10 @@ public class SupplierController {
         @PostMapping("/{name}/{productId}")
         public  SupplierDTO addSuplier(@PathVariable String name, @PathVariable Long productId){
             return supplierService.addSuplier(name, productId);
+        }
+
+//        @GetMapping
+        public Set<SupplierDTO> findSuppliersByProduct(String name){
+            return supplierService.findSuppliersByProduct(name);
         }
 }

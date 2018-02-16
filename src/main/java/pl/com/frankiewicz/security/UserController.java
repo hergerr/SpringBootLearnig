@@ -1,10 +1,12 @@
 package pl.com.frankiewicz.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -23,8 +25,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> addProduct(@RequestBody UserDTO userDTO, @RequestParam String password) {
-        UserDTO newUser = userService.addUser(userDTO, password);
+    public ResponseEntity<UserDTO> addProduct(@RequestParam String email, @RequestParam String password) throws MessagingException {
+        UserDTO newUser = userService.addUser(email, password);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 

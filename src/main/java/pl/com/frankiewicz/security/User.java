@@ -11,6 +11,11 @@ import java.util.Collections;
 public class User extends BaseEntity implements UserDetails {
     private String email;
     private String password;
+    private Boolean isEnabled = false;
+
+    public void enable() {
+        this.isEnabled = true;
+    }
 
     public String getEmail() {
         return email;
@@ -55,6 +60,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
+
 }

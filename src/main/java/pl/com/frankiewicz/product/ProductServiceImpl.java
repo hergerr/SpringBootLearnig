@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 import static pl.com.frankiewicz.product.ProductMapper.toProductDTO;
 
@@ -41,6 +42,11 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findOne(id);
         product.setPrice(price);
         return toProductDTO(productRepository.save(product));
+    }
+
+    @Override
+    public Set<ProductNameAndPrice> findAllInterface(){
+        return productRepository.findAllByPriceGreaterThan(BigDecimal.ZERO);
     }
 
 }

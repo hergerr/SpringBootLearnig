@@ -9,14 +9,17 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+
 @Entity
 @Table(name = "product")
-public class Product extends BaseEntity {
+public class Product extends BaseEntity implements ProductNameAndPrice {
 
+    @Column(unique = true, nullable = false,length = 60)
     private String name;
     private BigDecimal price;
 
     @OneToMany(mappedBy = "product")
+    @Column(nullable = false)
     private List<Supplier> suppliers;
 
     @ManyToMany(mappedBy = "products")
